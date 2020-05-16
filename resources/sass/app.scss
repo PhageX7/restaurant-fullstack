@@ -1,12 +1,20 @@
-//
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
-@import "pages/about";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import "bootstrap.min.css";
 @import "reset";
+@import "pages/about";
+@import "pages/waitlist";
+@import "pages/offers";
+@import "menu/index";
 @import "home";
 
 body {
     line-height: 1;
     background: white;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
 }
 
 ol,
@@ -136,6 +144,20 @@ body {
             }
         }
     }
+
+    #content-section {
+        max-width: 100%;
+        height: 100vh;
+        background: red;
+        background: #ed4852;
+        /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #ed4852 0%, #9c1b24 100%);
+        /* FF3.6- 15 */
+        background: -webkit-radial-gradient(center, ellipse cover, #ed4852 0%,#9c1b24 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, #ed4852 0%,#9c1b24 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
 }
 
 #information {
@@ -208,37 +230,37 @@ body {
         cursor: pointer;
     }
 
-    .container {
+    .left-btn,
+    .right-btn {
+        background: #ed4852;
+        color: white;
+        text-align: center;
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+        z-index: 10;
+
+        .fa {
+            font-size: 2rem;
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .left-btn {
+        left: 10.5%;
+    }
+
+    .right-btn {
+        right: 10.5%;
+    }
+
+    .slide-container {
         width: 100%;
         height: 100%;
         max-width: 950px;
         overflow: hidden;
-
-        .left-btn,
-        .right-btn {
-            background: #ed4852;
-            color: white;
-            text-align: center;
-            position: absolute;
-            bottom: -190%;
-            z-index: 3;
-            cursor: pointer;
-            display: block;
-
-            .fa {
-                font-size: 2rem;
-                width: 35px;
-                height: 35px;
-            }
-        }
-
-        .left-btn {
-            left: 10.25%;
-        }
-
-        .right-btn {
-            right: 10.25%;
-        }
+        position: relative;
 
         .food-slider {
             width: 100%;
@@ -327,3 +349,102 @@ h2 {
     margin-bottom: 20px;
     text-align: center;
 }
+
+.content-box {
+    background: white;
+    padding: 25px;
+}
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+/////////////////////////////////////////////
+// small devices and phones (landscaped phones up 767px)
+@media (min-width: 0px) and (max-width: 767px) {
+    #app-layout {
+        grid-template-columns: 100%;
+
+        .side-menu {
+            display: none;
+        }
+    }
+
+    #information {
+        grid-template-columns: 100%;
+
+        .info {
+            .paragraphs {
+                font-size: 0.9rem;
+                line-height: 1;
+            }
+        }
+    }
+
+    #food-preview {
+        .slide-container {
+            .left-btn {
+                bottom: -305%;
+                left: 10%;
+            }
+
+            .right-btn {
+                bottom: -305%;
+                right: 10%;
+            }
+
+            .food-slider {
+                .slide {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width: 991px) {
+    #app-layout {
+        grid-template-columns: 30% 70%;
+    }
+
+    #food-preview {
+        .slide-container {
+            .left-btn {
+                bottom: -155%;
+            }
+
+            .right-btn {
+                bottom: -155%;
+            }
+
+            .food-slider {
+                .slide {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    #app-layout {
+        grid-template-columns: 25% 75%;
+    }
+
+    #food-preview {
+        .left-btn {
+            left: 7.5%;
+        }
+
+        .right-btn {
+            right: 7.5%;
+        }
+
+        .slide-container {
+            .food-slider {
+                .slide {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

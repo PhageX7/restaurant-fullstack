@@ -27,13 +27,13 @@
     <div class="button-rounded">
       View Our Menu
     </div>
-    <div class="container">
-      <div class="left-btn">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-      </div>
-      <div class="right-btn">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
+    <div class="left-btn">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="right-btn">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+    <div class="slide-container">    
       <div class="food-slider">
         <div class="slide">
           <div class="background"></div>

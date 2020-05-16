@@ -3,7 +3,7 @@
 
 
 @section('content')
-  <div class="welcome-jumbo">
+  <div class="">
     <h1>CONTACT Page</h1>
   </div>
 @endsection

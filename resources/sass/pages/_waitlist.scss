@@ -1,0 +1,57 @@
+#waitlist-page {
+    padding: 30px;
+
+    .row {
+        height: 80vh;
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: black;
+        // margin-bottom: 20px;
+        text-transform: capitalize;
+    }
+
+    p {
+        line-height: 1.25;
+        font-weight: 500;
+    }
+
+    .col-md-6 {
+        p {
+            font-size: 0.75rem;
+        }
+    }
+
+    .form-group {
+        label {
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        input,
+        select {
+            border: 2px solid black;
+        }
+
+        .btn-primary {
+            background: #9c1b24;
+            border: none;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 856px) {
+    .btn-primary {
+        position: absolute;
+        right: 5%;
+        bottom: 11%;
+        margin-top: -15px;
+    }
+}
+@media (min-width: 856px) and (max-width: 991px) {
+    .btn-primary {
+        margin-top: -15px;
+    }
+}

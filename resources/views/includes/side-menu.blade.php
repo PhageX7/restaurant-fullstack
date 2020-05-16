@@ -8,7 +8,7 @@
     </div>
     <ul class="links">
       <li>
-        <a href="/menu">Food</a>
+        <a href="/menu">Menu</a>
       </li>
       <li>
         <a href="/about">About Us</a>
@@ -18,9 +18,6 @@
       </li>
       <li>
         <a href="/offers">Offers</a>
-      </li>
-      <li>
-        <a href="/giftcards">Gift Cards</a>
       </li>
     </ul>
   </div>
