@@ -1,0 +1,65 @@
+#single-menu-page {
+    padding: 30px;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #ed4852;
+    }
+
+    .item {
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+
+        .price,
+        h4 {
+            font-size: 1.4rem;
+            color: black;
+            font-weight: 900;
+        }
+    }
+}
+/////////////////////////////////////
+/////////////////////////////////////
+@media (min-width: 768px) and (max-width: 991px) {
+    #app-layout {
+        grid-template-columns: 20% 80% !important;
+
+        .side-menu {
+            .social-icons {
+                display: none !important;
+            }
+
+            .location {
+                width: 50%;
+                height: 50%;
+                font-size: 0.75rem;
+
+                .address {
+                    display: none;
+                }
+
+                .phone-number {
+                    margin-top: -100px;
+
+                    a {
+                        font-size: 0.90rem !important;
+                    }
+                }
+            }
+
+            .logo {
+                img {
+                    width: 130px !important;
+                }
+            }
+        }
+    }
+}

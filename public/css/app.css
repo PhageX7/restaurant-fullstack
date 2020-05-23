@@ -277,16 +277,6 @@ table {
   text-transform: uppercase;
 }
 
-#menu-page #food-preview .button-rounded {
-  background: #ed4852;
-  color: white;
-  display: inline-block;
-  padding: 15px;
-  border-radius: 30px;
-  margin: 0 0 15px;
-  cursor: pointer;
-}
-
 #menu-page #food-preview .left-btn,
 #menu-page #food-preview .right-btn {
   background: black;
@@ -395,6 +385,67 @@ table {
 #menu-page #food-preview .slide-container .food-slider .slide img {
   width: 250px;
   max-width: 100%;
+}
+
+#single-menu-page {
+  padding: 30px;
+}
+
+#single-menu-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #ed4852;
+}
+
+#single-menu-page .item {
+  margin-bottom: 2rem;
+}
+
+#single-menu-page .title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+#single-menu-page .title .price,
+#single-menu-page .title h4 {
+  font-size: 1.4rem;
+  color: black;
+  font-weight: 900;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #app-layout {
+    grid-template-columns: 20% 80% !important;
+  }
+
+  #app-layout .side-menu .social-icons {
+    display: none !important;
+  }
+
+  #app-layout .side-menu .location {
+    width: 50%;
+    height: 50%;
+    font-size: 0.75rem;
+  }
+
+  #app-layout .side-menu .location .address {
+    display: none;
+  }
+
+  #app-layout .side-menu .location .phone-number {
+    margin-top: -100px;
+  }
+
+  #app-layout .side-menu .location .phone-number a {
+    font-size: 0.9rem !important;
+  }
+
+  #app-layout .side-menu .logo img {
+    width: 130px !important;
+  }
 }
 
 .welcome-jumbo {
