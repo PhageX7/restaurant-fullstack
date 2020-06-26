@@ -36,32 +36,36 @@
                           <div class="card-body">
                               <table class="table">
                                   <thead>
-                                      <tr>
-                                          <th scope="col">id</th>
-                                          <th scope="col">Email</th>
-                                          <th scope="col">Date Created</th>
-                                          <th scope="col">Date Changed</th>
-                                          <th scope="col">Edit</th>
-                                          <th scope="col">Delete</th>
-                                      </tr>
+                                    <tr>
+                                      <th scope="col">id</th>
+                                      <th scope="col">Name</th>
+                                      <th scope="col">Email</th>
+                                      <th scope="col">Date Created</th>
+                                      <th scope="col">Edit</th>
+                                      <th scope="col">Delete</th>
+                                    </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>John@gmail.com</td>
-                                          <td>02/01/2020</td>
-                                          <td>02/02/2020</td>
+                                      @foreach ($users as $user)
+                                        <tr>
+                                          <th scope="row">{{$user->id}}</th>
+                                          <td>{{$user->fname}} {{$user->lname}}</td>
+                                          <td>{{$user->email}}</td>
+                                          <td>{{date('m/d/y', strtotime
+                                            ($user->updated_at))}}</td>
                                           <td>
-                                            <a href="/admin/users/1/edit"><i class="far fa-edit"></i></a>
+                                            <a href="/admin/users/{{$user->id}}/edit"><i class="far fa-edit"></i></a>
                                           </td>
                                           <td>
-                                            <a href="/admin/users/1/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
+                                            <a href="/admin/users/{{$user->id}}/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
                                             ">
                                             <i class="fas fa-trash"></i>
                                           </td>
-                                      </tr>
+                                        </tr>
+                                      @endforeach
                                   </tbody>
                               </table>
+                              {{ $users->links() }}
                           </div>
                       </div>
                   </div>
