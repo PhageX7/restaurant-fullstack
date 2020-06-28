@@ -80,7 +80,7 @@
                                 <label for="input-role">Select Role</label>
                                 <select name="role_id" class="form-control"  id="input-role">
                                   @foreach ($roles as $role)
-                                    <option value="{{$role->id}}""
+                                    <option value="{{$role->id}}"
                                     @if ($role->title == 'Admin')
                                         selected
                                     @endif

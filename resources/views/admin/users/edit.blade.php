@@ -34,40 +34,71 @@
                   <div class="card">
                       <h5 class="card-header">Edit User</h5>
                       <div class="card-body">
-                          <form action="#" id="basicform" data-parsley-validate="">
-                              <div class="form-group">
-                                  <label for="input-users-fname">First Name</label>
-                                  <input id="input-user-fname" type="text" name="users-fname" data-parsley-trigger="change" required="" placeholder="Enter users first name" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="input-users-lname">Last Name</label>
-                                  <input id="input-user-lname" type="text" name="users-lname" data-parsley-trigger="change" required="" placeholder="Enter users last name" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="input-users-email">Email</label>
-                                  <input id="input-user-email" type="email" name="users-email" data-parsley-trigger="change" required="" placeholder="Enter users email" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="input-users-password">Password</label>
-                                  <input id="input-user-password" type="password" name="users-password" data-parsley-trigger="change" required="" placeholder="Enter users password" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                <label for="input-role">Select Role</label>
-                                <select class="form-control"  id="input-role">
-                                    <option name="admin">Admin</option>
-                                    <option name="employee">Employee</option>
-                                </select>
-                              </div>
-                              <div class="row">
-                                  <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                  </div>
-                                  <div class="col-sm-6 pl-0">
-                                      <p class="text-right">
-                                          <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                      </p>
-                                  </div>
-                              </div>
-                          </form>
+                        <form method="POST" action="/admin/users/{{$user->id}}">
+                          @csrf
+                          @method('PUT')
+                            <div class="form-group">
+                                <label for="input-users-fname">First Name</label>
+                                <input id="input-users-fname" type="text" class="form-control form-control-lg @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname', $user->fname) }}" required autocomplete="fname" autofocus placeholder="First Name">
+                                @error('fname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="input-users-lname">Last Name</label>
+                                <input id="input-users-lname" type="text" class="form-control form-control-lg @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname', $user->lname) }}" required autocomplete="lname" autofocus placeholder="Last Name">
+                                @error('lname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="input-users-email">Email</label>
+                                <input id="input-users-email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email)}}" required autocomplete="email" placeholder="Email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="input-users-password">Password</label>
+                                <input id="input-users-password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-users-password">Confirm Password</label>
+                                <input id="confirm-users-password" type="password" class="form-control form-control-lg" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                            </div>
+                            <div class="form-group">
+                              <label for="input-role">Select Role</label>
+                              <select name="role_id" class="form-control"  id="input-role">
+                                @foreach ($roles as $role)
+                                  <option value="{{$role->id}}"
+                                  @if ($role->title == 'Employee')
+                                      selected
+                                  @endif
+                                  >{{$role->title}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
                       </div>
                   </div>
               </div>
