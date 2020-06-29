@@ -18,7 +18,7 @@ class CreateFoodItemsTable extends Migration
           $table->string('title');
           $table->text('description');
           $table->text('image_url');
-          $table->bigInteger('price');
+          $table->float('price', 8, 2);
           $table->bigInteger('category_id')->unsigned()->nullable();
           $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateFoodItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food__items');
+        Schema::dropIfExists('food_items');
     }
 }
