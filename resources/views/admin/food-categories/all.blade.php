@@ -45,19 +45,31 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>Burgers</td>
-                                          <td>02/02/2020</td>
+                                      @foreach ($categories as $category)
+                                        <tr>
+                                          <th scope="row">{{$category->id}}</th>
+                                          <td>{{$category->title}}</td>
+                                          <td>{{date('m/d/y', strtotime
+                                            ($category->updated_at))}}</td>
                                           <td>
-                                            <a href="/admin/food-categories/1/edit"><i class="far fa-edit"></i></a>
+                                            <a href="/admin/food-categories/{{$category->id}}/edit"><i class="far fa-edit"></i></a>
                                           </td>
                                           <td>
-                                            <a href="/admin/food-categories/1/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
+                                            {{-- <a href="/admin/users/{{$category->id}}/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
                                             ">
-                                            <i class="fas fa-trash"></i>
+                                            <i class="fas fa-trash"></i> --}}
+
+                                            <a href="#"    onclick="event.preventDefault(); if (! confirm('Are you sure you want to delete category?')) {return false;};
+                                             document.getElementById('delete-user-{{$category->id}}').submit();">
+                                             <i class="fas fa-trash"></i>
+                                            <form id="delete-user-{{$category->id}}" action="/admin/food-categories/{{$category->id}}/delete" method="POST" style="display: none;">
+                                                @method('DELETE')
+                                                @csrf
+                                            </form>
+
                                           </td>
-                                      </tr>
+                                        </tr>
+                                      @endforeach
                                   </tbody>
                               </table>
                           </div>

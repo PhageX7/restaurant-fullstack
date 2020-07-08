@@ -34,25 +34,46 @@
                   <div class="card">
                       <h5 class="card-header">Edit a new category</h5>
                       <div class="card-body">
-                          <form action="#" id="basicform" data-parsley-validate="">
-                              <div class="form-group">
-                                  <label for="input-category">Category Name</label>
-                                  <input id="input-category" type="text" name="category" data-parsley-trigger="change" required="" placeholder="Enter category name" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="input-category-imageUrl">Category Image URL</label>
-                                  <input id="input-category-imageUrl" type="text" name="image_url" data-parsley-trigger="change" required="" placeholder="http://www.billys.com/burgers.jpg" autocomplete="off" class="form-control">
-                              </div>
-                              <div class="row">
-                                  <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                  </div>
-                                  <div class="col-sm-6 pl-0">
-                                      <p class="text-right">
-                                          <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                      </p>
-                                  </div>
-                              </div>
-                          </form>
+                        <form method="POST" action="/admin/food-categories/{{$category->id}}">
+                          @csrf
+                          @method('PUT')
+                            <div class="form-group">
+                                <label for="input-title">Title</label>
+                                <input id="input-title" type="text" class="form-control form-control-lg @error('title') is-invalid @enderror" name="title" value="{{ old('title', $category->title) }}" required autocomplete="title" autofocus placeholder="Give the category a title">
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="input-description">Description</label>
+                                <textarea id="input-description" type="text" class="form-control form-control-lg @error('description') is-invalid @enderror" name="description" autofocus placeholder="Write a description">{{ old('description', $category->description) }}</textarea>
+                                @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="input-imageUrl">Image Url</label>
+                                <input id="input-imageUrl" type="text" class="form-control form-control-lg @error('image_url') is-invalid @enderror" name="image_url" value="{{ old('image_url', $category->image_url) }}" required autocomplete="image_url" autofocus placeholder="Add a url to the category image">
+                                @error('image_url')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
                       </div>
                   </div>
               </div>
