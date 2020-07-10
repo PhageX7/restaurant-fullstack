@@ -21,17 +21,17 @@ class FoodItemsController extends Controller
     ]);
   }
   public function create(){
-    $categories = FoodCategory::All();
+    $items = FoodItem::All();
 
     return view('admin/food-items/create', [
-      'categories' => $categories
+      'items' => $items
     ]);
   }
   public function store(){
 
     request()->validate([
       'title' => ['required', 'string'],
-      'description' => ['required', 'string'],    
+      'description' => ['required', 'string'],
       'price' => ['required', 'string'],
       'category_id' => ['required', 'integer']
     ]);

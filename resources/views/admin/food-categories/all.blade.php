@@ -55,14 +55,10 @@
                                             <a href="/admin/food-categories/{{$category->id}}/edit"><i class="far fa-edit"></i></a>
                                           </td>
                                           <td>
-                                            {{-- <a href="/admin/users/{{$category->id}}/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
-                                            ">
-                                            <i class="fas fa-trash"></i> --}}
-
                                             <a href="#"    onclick="event.preventDefault(); if (! confirm('Are you sure you want to delete category?')) {return false;};
-                                             document.getElementById('delete-user-{{$category->id}}').submit();">
+                                             document.getElementById('delete-category-{{$category->id}}').submit();">
                                              <i class="fas fa-trash"></i>
-                                            <form id="delete-user-{{$category->id}}" action="/admin/food-categories/{{$category->id}}/delete" method="POST" style="display: none;">
+                                            <form id="delete-category-{{$category->id}}" action="/admin/food-categories/{{$category->id}}/delete" method="POST" style="display: none;">
                                                 @method('DELETE')
                                                 @csrf
                                             </form>

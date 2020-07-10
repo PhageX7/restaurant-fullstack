@@ -57,10 +57,6 @@
                                             <a href="/admin/users/{{$user->id}}/edit"><i class="far fa-edit"></i></a>
                                           </td>
                                           <td>
-                                            {{-- <a href="/admin/users/{{$user->id}}/delete" onclick="if (! confirm('Are you sure you want to delete category?')) {return false;}
-                                            ">
-                                            <i class="fas fa-trash"></i> --}}
-
                                             <a href="#"    onclick="event.preventDefault(); if (! confirm('Are you sure you want to delete category?')) {return false;};
                                              document.getElementById('delete-user-{{$user->id}}').submit();">
                                              <i class="fas fa-trash"></i>
